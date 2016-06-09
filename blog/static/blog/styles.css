@@ -1,0 +1,18 @@
+        body {
+            font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+            font-size: 14px;
+            background-color: #eaeaea;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        .post small {
+            font-size: .5em;
+            color: #ccc;
+        }

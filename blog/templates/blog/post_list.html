@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% load staticfiles %}
+{% load l10n %}
+
+{% block main %}
+            {% for item in object_list %}
+                <article class="post">
+                    <h2><a href="{% url "posts:detail" item.id %}">{{ item.title }} <small>posted on {{ item.created_at|date }} by {{ item.author }}</small></a></h2>
+                    <div>{{ item.body }}</div>
+                </article>
+            {% endfor %}
+
+            {% if is_paginated %}
+                <div class="pagination">
+                    <span class="page-links">
+                        {% if page_obj.has_previous %}
+                            <a href="{% url "posts:home" %}?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+                        <span class="page-current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="{% url "posts:home" %}?page={{ page_obj.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+{% endblock %}

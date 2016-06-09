@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% load l10n %}
+
+{% block main %}
+<article class="post">
+    <h2>{{ object.title }} <small>posted on {{ object.created_at|date }} by {{ object.author }}</small></h2>
+    <div>{{ object.body }}</div>
+</article>
+{% endblock %}
